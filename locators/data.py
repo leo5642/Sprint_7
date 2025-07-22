@@ -27,5 +27,9 @@ class AuthData:
     }
 
     color = ['BLACK', 'CREY']
+    id_login = 577040
+    id_ordersid = 568068
 
-    ordersid = '568068'
+    error_register_409 = 'Этот логин уже используется. Попробуйте другой.'
+    error_login_400 = "Недостаточно данных для входа"
+    error_login_404 = "Учетная запись не найдена"

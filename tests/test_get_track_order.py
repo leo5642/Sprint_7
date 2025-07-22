@@ -6,7 +6,10 @@ import pytest
 import allure
 
 class TestGetOrder():
-    @allure.step('в тело ответа возвращается список заказов')
+    @allure.title('в тело ответа возвращается список заказов')
     def test_my_order_in_order(self):
-        r = requests.get(UrlCollector.post_order+ '/track?t=' + AuthData.ordersid)
+        with allure.step('Отправка запроса за списком и проверка наличие заказа в списке'):
+            r = requests.get(UrlCollector.post_order+ '/track?t=' + f'{AuthData.id_ordersid}')
         assert r.status_code == 200
+        r = r.json()
+        assert r["order"]["track"] == AuthData.id_ordersid
